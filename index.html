@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tabela de Corpos Celestes</title>
+</head>
+<body>
+    <header class="topo">
+        <div class="orbitas" aria-hidden="true">
+            <span class="anel anel-1"></span>
+            <span class="anel anel-2"></span>
+            <span class="anel anel-3"></span>
+            <span class="sol"></span>
+        </div>
+        <h1>Tabela de Corpos Celestes</h1>
+        <p>Já inclui planetas em ordem de distância do Sol, com órbita, velocidade e composição. Você também pode registrar novos corpos celestes.</p>
+    </header>
+
+    <main>
+        <section class="painel">
+            <h2>Registrar corpo celeste</h2>
+            <form id="formPlaneta">
+                <label>Nome
+                    <input type="text" id="nome" required placeholder="Ex.: Plutão">
+                </label>
+                <label>Tipo
+                    <select id="tipo" required>
+                        <option value="Rochoso">Rochoso</option>
+                        <option value="Gigante gasoso">Gigante gasoso</option>
+                        <option value="Gigante gelado">Gigante gelado</option>
+                        <option value="Planeta anão">Planeta anão</option>
+                    </select>
+                </label>
+                <label>Distância do Sol (milhões de km)
+                    <input type="number" id="distancia" required min="0" step="any" placeholder="5906">
+                </label>
+                <label>Velocidade orbital (km/s)
+                    <input type="number" id="velocidade" required min="0" step="any" placeholder="4,7">
+                </label>
+                <label>Período orbital (anos terrestres)
+                    <input type="number" id="periodo" required min="0" step="any" placeholder="248">
+                </label>
+                <label>Diâmetro (km)
+                    <input type="number" id="diametro" required min="0" step="any" placeholder="2377">
+                </label>
+                <label>Cor na tabela
+                    <input type="color" id="cor" value="#4FDDF7">
+                </label>
+                <label class="campo-largo">Composição predominante
+                    <input type="text" id="composicao" required placeholder="Ex.: gelo de nitrogênio e rocha">
+                </label>
+                <button id="btnSalvar" type="submit">Registrar</button>
+            </form>
+        </section>
+
+        <section class="painel">
+            <h2>Corpos celestes registrados</h2>
+            <div class="rolagem">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Tipo</th>
+                            <th class="num">Distância do Sol<small>milhões de km</small></th>
+                            <th class="num">Velocidade orbital<small>km/s</small></th>
+                            <th class="num">Período orbital</th>
+                            <th class="num">Diâmetro<small>km</small></th>
+                            <th>Composição predominante</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
